@@ -1,0 +1,131 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 10px;
+    background: rgb(149, 194, 215)
+}
+
+a {
+    /* 스타일 선언 */
+    text-decoration: none;
+}
+
+.main-header {
+    flex: 0 1 auto;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    display: auto;
+    flex-direction: column;
+}
+
+.logo-text {
+    background: white;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 37px;
+
+}
+
+/*섬네일간 간격 10px -세로형 리스트일 경우에만 해당함.
+.thumbnail-item+.thumbnail-item {
+    margin-top: 10px;
+}
+*/
+
+.thumbnail-item {
+    display: inline-block;
+    border: 1px solid rgb(100%, 100%, 100%);
+    border: 1px solid rgba(100%, 100%, 100%, 0.8);
+}
+
+.thumbnail-list {
+    flex: 0 1 auto;
+    order: 2;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.thumbnail-image {
+    display: block;
+    width: 100%;
+}
+
+.thumbnail-title {
+    font-family: monospace;
+    display: block;
+    margin: 0;
+    padding: 4px 10px;
+
+    background: rgb(96, 125, 139);
+    color: rgb(202, 238, 255);
+
+    font-size: 18px;
+}
+
+.detail-image-container {
+    /* 스타일 선언 */
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-image-frame {
+    /* 스타일 선언 */
+    position: relative;
+    text-align: center;
+}
+
+.detail-image {
+    /* 스타일 선언 */
+    width: 90%;
+}
+
+.detail-image-title {
+    /* 스타일 선언 */
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    
+    font-family: monospace;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+    font-size: 25px;
+}
+
+@media all and (min-width: 768px) {
+
+    /* Styles will go here */
+    .main-content {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .thumbnail-list {
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+    }
+
+    .thumbnail-item {
+        max-width: 260px;
+    }
+
+    .thumbnail-item+.thumbnail-item {
+        margin-top: 20px;
+    }
+}
