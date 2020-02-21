@@ -43,17 +43,29 @@ a {
 
 .thumbnail-item {
     display: inline-block;
+    min-width: 120px;
+    max-width: 120px;
     border: 1px solid rgb(100%, 100%, 100%);
     border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+  /*  transition: transform 1000ms ease-in-out; */
+}
+
+.thumbnail-item:hover {
+    transform: scale(1.2);
 }
 
 .thumbnail-list {
+  /*  flex-direction: column; */
+    order: 0;
+    margin-left: 20px;
+    
     flex: 0 1 auto;
     order: 2;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    padding: 0;
+    padding: 0 35px;
 
     white-space: nowrap;
     overflow-x: auto;
@@ -88,6 +100,13 @@ a {
     /* 스타일 선언 */
     position: relative;
     text-align: center;
+
+    transition: transform 333ms cubic-bezier(.17, .67, 1, .35);
+}
+
+.is-tiny {
+    transform: scale(0.001);
+    transition: transform 0ms;
 }
 
 .detail-image {
@@ -107,9 +126,21 @@ a {
     font-size: 25px;
 }
 
+.hidden-detail .detail-image-container {
+    display: none;
+}
+
+.hidden-detail .thumbnail-list{
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
+
 @media all and (min-width: 768px) {
 
-    /* Styles will go here */
     .main-content {
         flex-direction: row;
         overflow: hidden;
