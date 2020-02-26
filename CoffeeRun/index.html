@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <title>coffee order</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <style>
+            form :focus:required:invalid {
+                border-color: #a94442;
+            }
+        </style>
     </head>
     <body class="container">
         <header>
@@ -15,11 +20,11 @@
                     <form data-coffee-order="form">
                         <div class="form-group">
                             <lable for="CoffeeOrder">Coffee order</lable>
-                            <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
+                            <input class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+" />
                         </div>
                         <div class="form-group">
                             <lable for="emailInput">Email</lable>
-                            <input  class="form-control" type="email" name="emailAddress" id=emailInput" value="" placeholder="dr@who.com">                            
+                            <input  class="form-control" type="email" name="emailAddress" id=emailInput" value="" placeholder="dr@who.com" requried />                            
                         </div>            
                         <div class="radio">
                             <label>
@@ -54,10 +59,22 @@
                         </div> 
                         <button type="submit" class="btn btn-default">Submit</button>
                         <button type="reset" class="btn btn-default">Reset</button>
+                    </form>
                 </div>
-            </form>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Pending Orders:</h4>
+                    <div data-coffee-order="checklist">                        
+                    </div>
+                </div>
+            </div>
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+        <script src="webshim/polyfiller.js" charset="utf-8"></script>
+        <script src="scripts/validation.js" charset="utf-8"></script>
+        <script src="scripts/checklist.js" charset="utf-8"></script>
         <script src="scripts/FormHandler.js" charset="utf-8"></script>
         <script src="scripts/datastore.js" charset="utf-8"></script>
         <script src="scripts/cafe.js" charset="utf-8"></script>
