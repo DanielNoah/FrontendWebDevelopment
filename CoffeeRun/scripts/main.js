@@ -2,14 +2,17 @@
     'user strict';
     var FORM_SELECTOR = '[data-coffee-order="form"]';
     var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
+    var SERVER_URL = "http://coffeerun-v2-rest-api.herokuapp.com/api/coffeeorders";
     var App = window.App;
     var Cafe = App.Cafe;
     var DataStore = App.DataStore;
+    var RemoteDataStore = App.RemoteDataStore;
     var FormHandler = App.FormHandler;
     var Validation = App.Validation;
     var CheckList = App.CheckList;
+    var remoteDS = new RemoteDataStore(SERVER_URL);
     var webshim = window.webshim;
-    var myCafe = new Cafe('ncc-1801', new DataStore());
+    var myCafe = new Cafe('ncc-1801', remoteDS);
     window.myCafe = myCafe;   
     // 여기서부터 폼(사용자 주문 정보)을 제출할 때 실행될 두 콜백(CheckList와 FormHandler)을 등록하는 코드인데,
     var checkList = new CheckList(CHECKLIST_SELECTOR);
