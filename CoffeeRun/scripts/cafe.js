@@ -10,12 +10,12 @@
 
     Cafe.prototype.createOrder = function(order) {
         console.log('Adding order for ' + order.emailAddress);
-        return this.db.add(order.emailAddress, order);
+        this.db.add(order.emailAddress, order);
     };
 
-    Cafe.prototype.deliverOrder = function(customerId) {
+    Cafe.prototype.deliveryOrder = function(customerId) {
         console.log('Delivering order for ' + customerId);
-        return this.db.remove(customerId);
+        this.db.remove(customerId);
     };
 
     Cafe.prototype.printOrders = function() {
